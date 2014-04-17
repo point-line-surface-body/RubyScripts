@@ -1,3 +1,10 @@
+#!/usr/bin/ruby
+# encoding:utf-8
+#
+# Query RNC Device Version Information
+#
+
+
 require 'pty'
 require 'expect'
 
@@ -5,14 +12,13 @@ STDOUT.sync = true
 STDERR.sync = true
 
 class RncExpect
-
 	Login_Pattern = %r/^\s*Enter login:\s*/io
 	Password_Pattern = %r/^\s*Enter password:\s*/io
 	Prompt_Pattern = %r/^\s*\d>\s*/io
 
 	def initialize()
 		@rncInfo = Hash.new
-  end
+	end
 
 	def init_rncInfo(rncIp)
 		@rncInfo[:base] = ""
